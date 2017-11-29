@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="Core">
+  <DataContextMoniker Name="/CoreDataContext" />
+  <nestedChildShapes>
+    <classShape Id="abd7a266-13fd-4a28-ae06-ebe24f21b80e" absoluteBounds="0.75, 0.75, 2, 1.9631982421875">
+      <DataClassMoniker Name="/CoreDataContext/Match" />
+      <nestedChildShapes>
+        <elementListCompartment Id="46670eeb-d632-48fb-a8e1-177ae5c5014f" absoluteBounds="0.765, 1.21, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="b78c462a-a40c-4627-a621-678a094a0a96" absoluteBounds="3.75, 0.75, 2, 1.3862939453125">
+      <DataClassMoniker Name="/CoreDataContext/MatchReport" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e6ae44b3-45d6-409e-a88c-470c2d1c494d" absoluteBounds="3.765, 1.21, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="328c591a-3703-4f09-bc47-dcba09e58c74" absoluteBounds="0.75, 3.75, 2, 1.193992513020834">
+      <DataClassMoniker Name="/CoreDataContext/Team" />
+      <nestedChildShapes>
+        <elementListCompartment Id="f30be48d-4a5f-4945-a8e6-5e7439dacf03" absoluteBounds="0.765, 4.21, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.75 : 1.44314697265625); (3.75 : 1.44314697265625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/CoreDataContext/Match/Match_MatchReport" />
+      <nodes>
+        <classShapeMoniker Id="abd7a266-13fd-4a28-ae06-ebe24f21b80e" />
+        <classShapeMoniker Id="b78c462a-a40c-4627-a621-678a094a0a96" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

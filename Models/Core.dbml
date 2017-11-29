@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="FW" Class="CoreDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\FW.mdf;Integrated Security=True;Connect Timeout=30" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="FWConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Matches" Member="Matches">
+    <Type Name="Match">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="HomeTeamId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="AwayTeamId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="HomeGoals" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="AwayGoals" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TimeStamp" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="Match_MatchReport" Member="MatchReports" ThisKey="Id" OtherKey="Match" Type="MatchReport" Cardinality="One" />
+    </Type>
+  </Table>
+  <Table Name="dbo.MatchReports" Member="MatchReports">
+    <Type Name="MatchReport">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Match" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Contents" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Association Name="Match_MatchReport" Member="Match1" ThisKey="Match" OtherKey="Id" Type="Match" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Teams" Member="Teams">
+    <Type Name="Team">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="TeamName" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+    </Type>
+  </Table>
+</Database>
