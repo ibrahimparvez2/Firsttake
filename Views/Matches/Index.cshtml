@@ -1,0 +1,52 @@
+﻿@using FirstTake.Models;
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Admin.cshtml";
+}
+
+<h1>All Matches</h1><br />
+
+<p><a class="btn btn-default" href="Matches/add">Add a Match &raquo;</a></p>
+
+@{ if (ViewData["MyMatches"] != null)
+    {
+
+        <table class="table">
+            <tr>
+                <th>
+                    Home Team
+                </th>
+                <th>
+                    Away Team
+                </th>
+                <th>
+                    Result
+                </th>
+                <th>
+                    Date of Match
+                </th>
+            </tr>
+            @{foreach (Match m in (IEnumerable<Match>)ViewData["MyMatches"])
+                {
+                    <tr>
+                        <td>@m.HomeTeamName </td>
+                        <td>@m.AwayTeamName </td>
+                        <td>@m.HomeGoals - @m.AwayGoals</td>
+                        <td>@m.TimeStamp </td>
+                        <td> @Html.ActionLink("Edit", "Edit", new { m.Id })</td>
+                    </tr>
+                }
+
+
+            }
+        </table>
+
+                }
+                else
+                {
+                    <p>There are no matches to display</p>
+                }
+
+}
+

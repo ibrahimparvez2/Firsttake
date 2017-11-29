@@ -1,0 +1,95 @@
+﻿@using FirstTake.Models
+
+@model FirstTake.Models.Team
+
+@{
+    ViewBag.Title = "View";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="~/Content/TeamPage.css" rel="stylesheet" />
+
+
+@{ 
+    if (ViewData["OpponentTeamName"] != null)
+    {
+    
+        <h1><a href="@Model.Id">@Model.TeamName</a> vs @ViewData["OpponentTeamName"]</h1>
+
+    }
+    else
+    {
+       <h1>@Model.TeamName</h1>
+    }
+
+}
+
+
+
+
+ <div class="row">
+      <div class="col-md-4">
+            Home Matches
+          @{ 
+              if (ViewData["HomeGames"] != null)
+              {
+
+                  foreach(MatchReport r in (IEnumerable<MatchReport>)ViewData["HomeGames"])
+                  {
+                      <p>
+                          @Model.TeamName.ToUpper() @r.Match1.HomeGoals vs @r.Match1.AwayGoals @r.Match1.AwayTeamName<br/>
+                         (@r.Match1.TimeStamp)
+                          @Html.ActionLink("View Match Report", "View", "MatchReports", new { id = r.Id }, null)
+                     </p>
+                  }
+              }
+              else
+              {
+
+                  <p> There are no home match reports for this team</p>
+
+              }
+          }
+      </div>
+        <div class="col-md-4">
+            Away Matches
+            @{
+                if (ViewData["AwayGames"] != null)
+                {
+
+                    foreach (MatchReport r in (IEnumerable<MatchReport>)ViewData["AwayGames"])
+                    {
+                        <p>
+                            @r.Match1.HomeTeamName @r.Match1.HomeGoals vs @r.Match1.AwayGoals @Model.TeamName.ToUpper()<br />
+                           (@r.Match1.TimeStamp)
+                            @Html.ActionLink("View Match Update", "View", "MatchReports", new { id = r.Id }, null)
+                           
+                            
+                        </p>
+                    }
+                }
+                else
+                {
+
+                    <p> There are no away match reports for this team</p>
+
+                }
+            }
+
+      </div>
+
+     <div class="col-md-4">
+         Filter by Opponents
+         @{ 
+             if (ViewData["Teams"] != null)
+             {
+                 foreach(Team t in (IEnumerable<Team>)ViewData["Teams"])
+                 {
+                    <p><a href="@Model.Id?Opponent=@t.Id">@t.TeamName</a></p>
+                     
+                 }
+             }
+
+
+         }
+     </div>
+ </div>

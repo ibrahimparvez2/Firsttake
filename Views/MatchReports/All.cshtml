@@ -1,0 +1,63 @@
+﻿@using FirstTake.Models;
+
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>All Match Reports</h1><br />
+
+
+
+@{ if (ViewData["Reports"] != null)
+    {
+
+        <table class="table">
+            <tr>
+                <th>
+                    Home Team
+                </th>
+                <th>
+                    Away Team
+                </th>
+                <th>
+                    Result
+                </th>
+                <th>
+                    Date of Match
+                </th>
+                @*<th>
+                    Comment
+                </th>*@
+            </tr>
+            
+            @{foreach (MatchReport r in (IEnumerable<MatchReport>)ViewData["Reports"])
+                {
+                    
+                    <tr>
+                        <td>@r.Match1.HomeTeamName</td>
+                        <td>@r.Match1.AwayTeamName </td>
+                        <td>@r.Match1.HomeGoals - @r.Match1.AwayGoals</td>
+                        <td>@r.Match1.TimeStamp </td>
+                        <td>@Html.ActionLink("View", "View", new { r.Id })</td>
+                        
+
+                        </tr>
+                }
+
+
+            }
+
+        </table>
+
+                }
+
+                else
+                {
+                    <p>There are no matches to display</p>
+                    }
+
+
+
+                }

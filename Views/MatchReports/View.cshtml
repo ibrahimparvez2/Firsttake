@@ -1,0 +1,17 @@
+﻿@model FirstTake.Models.MatchReport
+
+@{
+    ViewBag.Title = "View";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="media-heading">
+        <h2> Match Report For: @Model.Match1.HomeTeamName @Model.Match1.HomeGoals vs @Model.Match1.AwayGoals @Model.Match1.AwayTeamName</h2>
+        <h3>Time Stamp @Model.Match1.TimeStamp</h3>
+        <p>
+            
+        </p>
+    <p>@Html.Raw(Model.Contents)</p>
+    </div>
+ </div>

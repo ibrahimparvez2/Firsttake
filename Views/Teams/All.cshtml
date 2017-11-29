@@ -1,0 +1,44 @@
+﻿@using FirstTake.Models
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h1>All Teams</h1><br />
+
+
+@*<p><a class="btn btn-default" href="Teams/add">Add a Team &raquo;</a></p>*@
+
+@{ if (ViewData["Teams"] != null)
+    {
+
+        <table class="jumbotron">
+            <tr>
+                <th>
+                    Team Name
+                </th>
+            </tr>
+            @{foreach (Team t in (IEnumerable<Team>)ViewData["Teams"])
+                {
+                    <tr>
+                        <td>@t.TeamName @Html.ActionLink("Team HomePage", "View", new { t.Id })</td>
+                    </tr>
+                 
+                }
+
+
+            }
+        </table>
+
+                }
+                else
+                {
+                    <p>There are no teams to display</p>
+                }
+
+}
+
+
+
