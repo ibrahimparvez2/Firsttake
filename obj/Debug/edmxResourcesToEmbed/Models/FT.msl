@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="FWModelStoreContainer" CdmEntityContainer="FWEntities">
+    <EntitySetMapping Name="Matches">
+      <EntityTypeMapping TypeName="FWModel.Matches">
+        <MappingFragment StoreEntitySet="Matches">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="HomeTeamId" ColumnName="HomeTeamId" />
+          <ScalarProperty Name="AwayTeamId" ColumnName="AwayTeamId" />
+          <ScalarProperty Name="HomeGoals" ColumnName="HomeGoals" />
+          <ScalarProperty Name="AwayGoals" ColumnName="AwayGoals" />
+          <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MatchReports">
+      <EntityTypeMapping TypeName="FWModel.MatchReports">
+        <MappingFragment StoreEntitySet="MatchReports">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Match" ColumnName="Match" />
+          <ScalarProperty Name="Contents" ColumnName="Contents" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Teams">
+      <EntityTypeMapping TypeName="FWModel.Teams">
+        <MappingFragment StoreEntitySet="Teams">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="TeamName" ColumnName="TeamName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
